@@ -4,6 +4,10 @@ function App() {
   const [typeOfColor, setTypeOfColor] = useState('hex');
   const [color, setColor] = useState('#252525');
 
+  function handleCreateRandomHexColor() {}
+
+  function handleCreateRandomRgbColor() {}
+
   return (
     <div
       className='app'
@@ -11,9 +15,17 @@ function App() {
         background: color,
       }}
     >
-      <button>Generate HEX Color</button>
-      <button>Generate RGB Color</button>
-      <button>Generate Random Color</button>
+      <button onClick={() => setColor('hex')}>Generate HEX Color</button>
+      <button onClick={() => setColor('rgb')}>Generate RGB Color</button>
+      <button
+        onClick={
+          typeOfColor === 'hex'
+            ? handleCreateRandomHexColor
+            : handleCreateRandomRgbColor
+        }
+      >
+        Generate Random Color
+      </button>
     </div>
   );
 }
