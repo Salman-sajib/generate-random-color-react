@@ -36,3 +36,12 @@ button:hover {
   background-color: hsl(240, 96%, 62%);
   cursor: pointer;
 }
+
+.color-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-top: 3rem;
+}
