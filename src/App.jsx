@@ -46,10 +46,17 @@ function App() {
     setColor(`rgb(${red}, ${green}, ${blue})`);
   }
 
-  function handleCreateRandomHslColor() {}
+  function handleCreateRandomHslColor() {
+    const hue = generateRandomNumber(360);
+    const saturation = generateRandomNumber(100);
+    const lightness = generateRandomNumber(100);
+
+    setColor(`hsl(${hue}, ${saturation}%, ${lightness}%)`);
+  }
 
   useEffect(() => {
     if (typeOfColor === 'rgb') handleCreateRandomRgbColor();
+    else if (typeOfColor === 'hsl') handleCreateRandomHslColor();
     else handleCreateRandomHexColor();
   }, [typeOfColor]);
 
@@ -65,16 +72,25 @@ function App() {
       </h1>
       <button onClick={() => setTypeOfColor('hex')}>Generate HEX Color</button>
       <button onClick={() => setTypeOfColor('rgb')}>Generate RGB Color</button>
+      <button onClick={() => setTypeOfColor('hsl')}>Generate HSL Color</button>
       <button
         onClick={() => {
           if (typeOfColor === 'hex') handleCreateRandomHexColor();
+          else if (typeOfColor === 'hsl') handleCreateRandomHslColor();
           else handleCreateRandomRgbColor();
         }}
       >
         Generate Random Color
       </button>
       <div className='color-name'>
-        <h3> {typeOfColor === 'rgb' ? 'RGB Color' : 'HEX Color'} </h3>
+        <h3>
+          {' '}
+          {typeOfColor === 'rgb'
+            ? 'RGB Color'
+            : typeOfColor === 'hsl'
+            ? 'HSL Color'
+            : 'HEX Color'}{' '}
+        </h3>
         <h1> {color} </h1>
       </div>
     </div>
