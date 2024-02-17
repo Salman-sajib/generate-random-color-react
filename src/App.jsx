@@ -68,7 +68,8 @@ function App() {
       }}
     >
       <h1 className='title'>
-        Click on any of the button&apos;s to generate a random color
+        Click on any of the button&apos;s to select a random color format then
+        click on random color button
       </h1>
       <button onClick={() => setTypeOfColor('hex')}>Generate HEX Color</button>
       <button onClick={() => setTypeOfColor('rgb')}>Generate RGB Color</button>
